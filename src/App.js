@@ -58,11 +58,13 @@ class App extends Component {
   render() {
     const btnstyle={
 
-      backgroundColor:'#fff',
+      backgroundColor:'#00f',
+      color:'#fff',
       border:'1px solid #3333ff',
       padding: '8px'
     }
     let persons = null;
+    // let classes = ['red', 'bold'].join(' ');
     if(this.state.showPersons){
       persons=(
         <div>
@@ -84,11 +86,22 @@ class App extends Component {
         click1={this.switchHandler}>jack bold test</P1>
         <P1 nam={this.state.persons[2].name} agee={this.state.persons[2].age}/> */}
         </div>
-      )
+      );
+      btnstyle.backgroundColor='#f00';
     }
+
+    const classes=[];
+    if(this.state.persons.length <=2){
+      classes.push('red');
+    }
+    if(this.state.persons.length <=1){
+      classes.push('bold');
+    }
+    
     return (
       <div className="App">
     <h1>nd1</h1>
+    <p className={classes.join(' ')}>This is working</p>
     {/* <button onClick={this.switchHandler.bind(this, 'cwj')}>switch name </button> */}
     {/* <button style={btnstyle} onClick={() => this.switchHandler('chwj')}>switch name </button> */}
     <button style={btnstyle} onClick={this.toggleP1Handler}>switch name </button>
